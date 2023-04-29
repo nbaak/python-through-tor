@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  
+  tor-service:
+    image: osminogin/tor-simple
+    ports:
+    - "127.0.0.1:9050:9050"
+
+  python-app:
+    build: .
+    image: k3nny/tor-app
+    depends_on:
+    - tor-service
+
